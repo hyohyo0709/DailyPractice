@@ -22,7 +22,7 @@ M과 N은 10,000이하의 자연수이며, M은 N보다 작거나 같다.
  * 
  */
 
-public class P220915_3 {
+public class P220915_3_primenumber {
 
 	public static void main(String[] args) {
 		
