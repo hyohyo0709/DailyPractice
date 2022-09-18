@@ -1,7 +1,10 @@
 package practice_220914;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.HashMap;
 
 /*
@@ -16,14 +19,25 @@ Java를 사용하고 있다면, Scanner와 System.out.println 대신 BufferedRea
 BufferedWriter.flush는 맨 마지막에 한 번만 하면 된다.
 
  */
-public class P220914_3 {
+public class P220914_3_Buffered {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws NumberFormatException, IOException {
 		
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
 		
 		int T = 5;
 		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		
+	
+		
+		for(int i=1; i<=T; i++) {
+			int X_1= Integer.parseInt(br.readLine());
+			int x_2= Integer.parseInt(br.readLine());
+			int r_1= Integer.parseInt(br.readLine());
+			
+		}
 		
 		
 
