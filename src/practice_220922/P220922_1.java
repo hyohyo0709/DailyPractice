@@ -35,26 +35,11 @@ C개의 공유기를 N개의 집에 적당히 설치해서, 가장 인접한 두
  */
 public class P220922_1 {
 
-	static int point; // 각각 최소거리가 갖는 최대 설치 개수
-	
-	
-	
-	
-	public static int getPoint() {
-		return point;
-	}
-
-	public static void setPoint(int point) {
-		P220922_1.point = point;
-	}
-
-	
-	
 	public static void main(String[] args) {
 		
 		Random ran = new Random();
 		int N = ran.nextInt(18)+2; // 집 개수 = 좌표 개수
-		int C = ran.nextInt(N-1)+1; // 공유기 개수
+		int C = ran.nextInt(N-1)+2; // 공유기 개수
 		
 		System.out.println("집 개수 "+N);
 		System.out.println("공유기 개수 "+C);
@@ -91,47 +76,43 @@ public class P220922_1 {
 		
 		
 		int min =1; //최소거리 변수
-	 
+	
 		int pointmax=C;
-		
+	 
 		do {
-			
-			
-			chkchk(xlist, 3, min, point);
+			int point = 0; // 각각 최소거리가 갖는 최대 설치 개수		
+			 List<Integer> dummy = new ArrayList<Integer>();
+			 
+			chkchk(xlist, 3, min, point, dummy);
 			min++;
 			
-			 pointmax=getPoint();
+			 pointmax=dummy.get(dummy.size()-1);
 		}while(pointmax>=C);
 			
 			
-		System.out.println("최대 개수 : "+ pointmax);
-		System.out.println(min);
+//		System.out.println("최대 개수 : "+ pointmax);
+		System.out.println("최소 거리의 최댓값 : "+min);
 		
 	
 	}// 메인
 	
-	public static void chkchk(List<Integer> list, int min, int index, int point) {
+	public static void chkchk(List<Integer> list, int min, int index, int point, List<Integer> dummy) {
 		
 		
 			for(int i=index+1; i<list.size(); i++) {
 				
 				if((list.get(i)-list.get(index))>=min) {
-					if(index==list.size()-1) {
-						setPoint(point);
-					}
-						chkchk(list, min, i, point+1);
+					dummy.add(point+1);
+						chkchk(list, min, i, point+1, dummy);
 			
 			break;
-					
-
-			
 			
 		}
 				
 				
 			}
 			
-			System.out.println(point);
+			
 			
 		
 	}//chkchk
